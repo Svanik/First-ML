@@ -10,6 +10,19 @@ from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 
 
+def pickthistodo():
+    """Pick what needs to be done next."""
+    global x
+    dothis = input('''Would you like to enter more data:(y/n )''')
+    if dothis == 'y' or dothis == 'y':
+        x = 1
+    elif dothis == 'n' or dothis == 'N':
+        x = -1
+    else:
+        print("Your input is not valid pleace input 1, 2, or 3")
+        pickthistodo()
+
+
 # Load dataset
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
@@ -33,7 +46,8 @@ print(accuracy_score(Y_validation, predictions))
 print(confusion_matrix(Y_validation, predictions))
 print(classification_report(Y_validation, predictions))
 
-while True:
+x = 1
+while x == 1:
     print("Please Enter the Folowing Metrics one at a time")
     sl = input("Enter Seapal length: ")
     sw = input("Enter Seapal width: ")
@@ -43,3 +57,4 @@ while True:
     makeprediction = makeprediction.reshape(1, -1)
     finalprediction = knn.predict(makeprediction)
     print(finalprediction)
+    pickthistodo()
