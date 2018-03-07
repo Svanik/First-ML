@@ -17,7 +17,7 @@ def pickthistodo():
     elif dothis == 'n' or dothis == 'N':
         x = -1
     else:
-        print("Your input is not valid pleace input 1, 2, or 3")
+        print("Your input is not valid Please input y, or n")
         pickthistodo()
 
 
